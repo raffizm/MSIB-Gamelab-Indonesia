@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>TugasPraktik6</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .judul {
+        padding-top: 50px;
+        text-align: center;
+    }
+    
+    .containerProduk {
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .produk {
+        display: inline;
+        width: 45%;
+        text-align: center;
+        border: 1px solid black;
+        background-color: beige;
+    }
+    
+    .gambarProduk {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .textProduk {
+        padding: 10px;
+        padding-bottom: 40px;
+        border-top: 1px solid black;
+    }
+    
+    .judulProduk {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .deskripsiProduk {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .btnBeli {
+        background-color: #6096B4;
+        color: #fff;
+        padding: 10px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="judul">
+        <h1>Penjualan Sepatu Nike</h1>
+    </div>
+    <div class="container">
+        <div class="containerProduk">
+            <div class="produk">
+                <img class="gambarProduk" src="airjordan.png">
+                <div class="textProduk">
+                    <p class="judulProduk">AIR JORDAN</p>
+                    <p class="deskripsiProduk">Harga : 2.900.000</p>
+                    <a href="#" class="btnBeli">Beli</a>
+                </div>
+            </div>
+            <div class="produk">
+                <img class="gambarProduk" src="nikeDunkHigh.png">
+                <div class="textProduk">
+                    <p class="judulProduk">NIKE DUNK HIGH</p>
+                    <p class="deskripsiProduk">Harga : 3.700.000</p>
+                    <a href="#" class="btnBeli">Beli</a>
+                </div>
+            </div>
+            <div class="produk">
+                <img class="gambarProduk" src="nikeDunkLow.png">
+                <div class="textProduk">
+                    <p class="judulProduk">NIKE DUNK LOW</p>
+                    <p class="deskripsiProduk">Harga : 2.300.000</p>
+                    <a href="#" class="btnBeli">Beli</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

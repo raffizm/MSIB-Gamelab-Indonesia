@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TugasPraktik 11</title>
+</head>
+
+<body>
+    <center>
+        <h1>Form dengan Web Storage</h1>
+        <hr>
+        <form onsubmit="return false;">
+            <table>
+                <tr>
+                    <td><label for="nama">Nama</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="nama" placeholder="Masukkan nama Anda"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td>:</td>
+                    <td> <input type="email" id="email" placeholder="Masukkan alamat email Anda"></td>
+                </tr>
+                <tr>
+                    <td><label for="tmptLahir">Tempat Lahir </label></td>
+                    <td>:</td>
+                    <td><input type="text" id="tmptLahir" placeholder="Masukkan Tempat Lahir Anda"></td>
+                </tr>
+            </table>
+            <br>
+            <button onclick="simpanData()">Simpan</button>
+            <button onclick="tampilkanData()">Tampilkan Data</button>
+            <button onclick="hapusData()">Hapus Data</button>
+        </form>
+
+        <p id="dataTersimpan"></p>
+    </center>
+
+
+
+</body>
+<script>
+    function simpanData() {
+        const nama = document.getElementById("nama").value;
+        const email = document.getElementById("email").value;
+        const tmptLahir = document.getElementById("tmptLahir").value;
+
+        const data = {
+            nama,
+            email,
+            tmptLahir,
+        };
+
+        localStorage.setItem("formData", JSON.stringify(data));
+        alert("Data berhasil disimpan!");
+    }
+
+    function tampilkanData() {
+        const dataTersimpan = localStorage.getItem("formData");
+        if (dataTersimpan) {
+            const data = JSON.parse(dataTersimpan);
+            document.getElementById("dataTersimpan").textContent =
+                `Nama: ${data.nama}\nEmail: ${data.email}\nTempat Lahir: ${data.tmptLahir}`;
+        } else {
+            document.getElementById("dataTersimpan").textContent = "Tidak ada data yang tersimpan.";
+        }
+    }
+
+    function hapusData() {
+        localStorage.removeItem("formData");
+        document.getElementById("dataTersimpan").textContent = "Data berhasil dihapus.";
+    }
+</script>
+
+</html>

@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <title>TugasPraktik10</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .bgcolor {
+        background-color: #93BFCF;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .judul {
+        padding-top: 50px;
+        text-align: center;
+    }
+    
+    .containerProduk {
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .produk {
+        display: inline;
+        width: 45%;
+        text-align: center;
+        border: 1px solid black;
+        background-color: beige;
+    }
+    
+    .gambarProduk {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .textProduk {
+        padding: 10px;
+        padding-bottom: 40px;
+        border-top: 1px solid black;
+    }
+    
+    .judulProduk {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .deskripsiProduk {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .btnBeli {
+        background-color: #6096B4;
+        color: #fff;
+        padding: 10px;
+        margin-top: px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .btnGantiBg {
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .txtGantiBg {
+        margin: 5px;
+        margin-left: 10px;
+        margin-top: 10px;
+        font-size: 16;
+    }
+    
+    .commentBeli {
+        color: grey;
+        font-size: 10;
+        padding-top: 10;
+    }
+    
+    cb1,
+    cb2,
+    cb3 {
+        visibility: visible;
+    }
+</style>
+
+<body class="bgcolor">
+    <form>
+        <div class="gantibg">
+            <p class="txtGantiBg">Tekan tombol dibawah untuk mengganti warna background</p>
+            <select class="btnGantiBg" onchange="warna(this.value)">
+                <option value="blue">Biru</option>
+                <option value="red">Merah</option>
+                <option value="green">Hijau</option>
+            </select>
+        </div>
+    </form>
+    <div class="judul">
+        <h1 class="judulTxt">Penjualan Sepatu Nike</h1>
+    </div>
+    <div class="container">
+        <div class="containerProduk">
+            <div class="produk">
+                <img class="gambarProduk" src="airjordan.png" onclick="tampilHarga1()">
+                <div class="textProduk">
+                    <p id="cb1" class="commentBeli">*Tekan gambar untuk mengetahui harga</p>
+                    <p class="judulProduk">AIR JORDAN</p>
+                    <hr>
+                    <p id="hargaProduk1" class="deskripsiProduk"></p>
+                    <a id="airJordan" class="btnBeli" onclick="jmlDibeli()">Beli</a>
+                    <p class="commentBeli">*Tekan tombol "Beli" untuk memasukkan jumlah</p>
+                </div>
+            </div>
+            <div class="produk">
+                <img class="gambarProduk" src="nikeDunkHigh.png" onclick="tampilHarga2()">
+                <div class="textProduk">
+                    <p id="cb2" class="commentBeli">*Tekan gambar untuk mengetahui harga</p>
+                    <p class="judulProduk">NIKE DUNK HIGH</p>
+                    <hr>
+                    <p id="hargaProduk2" class="deskripsiProduk"></p>
+                    <a id="nikeDunkHigh" class="btnBeli" onclick="jmlDibeli()">Beli</a>
+                    <p class="commentBeli">*Tekan tombol "Beli" untuk memasukkan jumlah</p>
+                </div>
+            </div>
+            <div class="produk">
+                <img class="gambarProduk" src="nikeDunkLow.png" onclick="tampilHarga3()">
+                <div class="textProduk">
+                    <p id="cb3" class="commentBeli">*Tekan gambar untuk mengetahui harga</p>
+                    <p class="judulProduk">NIKE DUNK LOW</p>
+                    <hr>
+                    <p id="hargaProduk3" class="deskripsiProduk"></p>
+                    <a id="nikeDunkLow" class="btnBeli" onclick="jmlDibeli()">Beli</a>
+                    <p class="commentBeli">*Tekan tombol "Beli" untuk memasukkan jumlah</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var judulProduk = document.getElementsByClassName("judulProduk");
+    setInterval(function() {
+
+        judulProduk[0].style.color = "red";
+        judulProduk[1].style.color = "green";
+        judulProduk[2].style.color = "blue";
+
+        setTimeout(function() {
+
+            judulProduk[1].style.color = "black";
+            judulProduk[2].style.color = "black";
+            judulProduk[0].style.color = "black";
+
+        }, 500)
+    }, 1000);
+
+    function jmlDibeli() {
+        let inputJumlah = prompt('Masukkan jumlah Sepatu yang ingin dibeli', "1");
+        alert("Kamu Telah Menambahkan " + inputJumlah + " Sepatu Pada Keranjang !");
+        console.log(inputJumlah);
+    }
+
+    function warna(pilihWarna) {
+        alert("Anda memilih warna " + pilihWarna + " sebagai warna background");
+        document.body.style.backgroundColor = pilihWarna;
+    }
+
+    function tampilHarga1() {
+        var harga1 = document.getElementById("hargaProduk1");
+        harga1.textContent = "Harga : 2.900.000";
+        harga1.style.display = "block";
+        var hilang1 = document.getElementById("cb1");
+        hilang1.style.display = "none";
+    }
+
+    function tampilHarga2() {
+        var harga2 = document.getElementById("hargaProduk2");
+        harga2.textContent = "Harga : 3.700.000";
+        harga2.style.display = "block";
+        var hilang2 = document.getElementById("cb2");
+        hilang2.style.display = "none";
+    }
+
+    function tampilHarga3() {
+        var harga3 = document.getElementById("hargaProduk3");
+        harga3.textContent = "Harga : 2.300.000";
+        harga3.style.display = "block";
+        var hilang3 = document.getElementById("cb3");
+        hilang3.style.display = "none";
+    }
+</script>
+
+</html>

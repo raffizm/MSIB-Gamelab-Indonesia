@@ -1,0 +1,246 @@
+<html>
+
+<head>
+    <title>Tugas_Akhir_MuhammadRaffiZeinuriMisbah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bgcolor">
+    <!--Navbar-->
+    <div class="container-fluid">
+        <nav class="navbar" style="background-color: #6096B4; padding-left: 20px; padding-right: 20px;">
+            <div class="container-fluid">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Rumah Sakit Harapan Saya</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Tambah Pasien -->
+    <div class="container">
+        <div class="btnTambahPasien">
+            <button class="btnTambah" id="btnTambah" onclick="tampilFormTambah()">Tambah Pasien</button>
+        </div>
+    </div>
+    <div class="container" id="formTambah">
+        <form>
+            <table>
+                <tr>
+                    <td><label for="idPasien">ID Pasien</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="idPasien" name="idPasien" placeholder="P-123456" size="5" maxlength="8"></td>
+                </tr>
+                <tr>
+                    <td><label for="namaPasien">Nama Pasien</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="namaPasien" name="namaPasien" placeholder="Andri Kamurung"></td>
+                </tr>
+                <tr>
+                    <td><label for="alamat">Alamat</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="alamat" name="alamat" placeholder="Jl. Dipatiukur No.7"></td>
+                </tr>
+                <tr>
+                    <td><label for="noRuangan">Nomor Ruangan</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="noRuangan" name="noRuangan" placeholder="R-5308" size="3" maxlength="6"></td>
+                </tr>
+                <tr>
+                    <td><label for="bpjs">BPJS</label></td>
+                    <td>:</td>
+                    <td><select id="bpjs" name="bpjs">
+                            <option>Tidak Menggunakan</option>
+                            <option>Kelas 1</option>
+                            <option>Kelas 2</option>
+                            <option>Kelas 3</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="tanggalMasuk">Tanggal Masuk</label></td>
+                    <td>:</td>
+                    <td><input type="date" name="tanggalMasuk" id="tanggalMasuk"></td>
+                </tr>
+                <tr>
+                    <td><label for="tanggalKeluar">Tanggal Keluar</label></td>
+                    <td>:</td>
+                    <td><input type="date" name="tanggalKeluar" id="tanggalKeluar"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" onclick="masukkanData()" style="margin-right: 10px;">
+            <input type="button" value="Batal" onclick="sembunyiFormTambah()">
+        </form>
+    </div>
+
+    <!-- Tampil Pasien -->
+    <div class="containerTable">
+        <div class="tampil">
+            <table class="tableTampil">
+                <thead>
+                    <tr>
+                        <th class="judulColoumn">No</th>
+                        <th class="judulColoumn">ID Pasien</th>
+                        <th class="judulColoumn">Nama Pasien</th>
+                        <th class="judulColoumn">Alamat Pasien</th>
+                        <th class="judulColoumn">Nomor Ruangan</th>
+                        <th class="judulColoumn">BPJS</th>
+                        <th class="judulColoumn">Tanggal Masuk</th>
+                        <th class="judulColoumn">Tanggal Keluar</th>
+                        <th colspan="2" class="judulColoumn">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function tampilFormTambah() {
+        const form = document.getElementById('formTambah');
+        form.style.display = 'block';
+    }
+
+    function sembunyiFormTambah() {
+        const form = document.getElementById('formTambah');
+        form.style.display = 'none';
+        const idPasien = document.getElementById('idPasien').value;
+        const namaPasien = document.getElementById('namaPasien').value;
+        const alamat = document.getElementById('alamat').value;
+        const noRuangan = document.getElementById('noRuangan').value;
+        const bpjs = document.getElementById('bpjs').value;
+        const tanggalMasuk = document.getElementById('tanggalMasuk').value;
+        const tanggalKeluar = document.getElementById('tanggalKeluar').value;
+        if (!idPasien) {
+            const tableBody = document.getElementById('tableBody');
+            const row = tableBody.insertRow();
+
+            row.insertCell(0).textContent = tableBody.rows.length;
+            row.insertCell(1).textContent = idPasien;
+            row.insertCell(2).textContent = namaPasien;
+            row.insertCell(3).textContent = alamat;
+            row.insertCell(4).textContent = noRuangan;
+            row.insertCell(5).textContent = bpjs;
+            row.insertCell(6).textContent = tanggalMasuk;
+            row.insertCell(7).textContent = tanggalKeluar;
+
+            const actionCell = row.insertCell(8);
+            const updateButton = document.createElement('button');
+            updateButton.textContent = 'Update';
+            updateButton.onclick = function() {
+                document.getElementById('idPasien').value = idPasien;
+                document.getElementById('namaPasien').value = namaPasien;
+                document.getElementById('alamat').value = alamat;
+                document.getElementById('noRuangan').value = noRuangan;
+                document.getElementById('bpjs').value = bpjs;
+                document.getElementById('tanggalMasuk').value = tanggalMasuk;
+                document.getElementById('tanggalKeluar').value = tanggalKeluar;
+                tampilFormTambah();
+            };
+            actionCell.appendChild(updateButton);
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Hapus';
+            deleteButton.onclick = function() {
+                hapusData(row.rowIndex - 1);
+            };
+            actionCell.appendChild(deleteButton);
+        }
+    }
+
+    function masukkanData() {
+        const idPasien = document.getElementById('idPasien').value;
+        const namaPasien = document.getElementById('namaPasien').value;
+        const alamat = document.getElementById('alamat').value;
+        const noRuangan = document.getElementById('noRuangan').value;
+        const bpjs = document.getElementById('bpjs').value;
+        const tanggalMasuk = document.getElementById('tanggalMasuk').value;
+        const tanggalKeluar = document.getElementById('tanggalKeluar').value;
+
+        // Dapatkan data dari localStorage
+        let dataPasien = JSON.parse(localStorage.getItem('dataPasien')) || [];
+
+        // Buat objek data pasien
+        const newDataPasien = {
+            idPasien,
+            namaPasien,
+            alamat,
+            noRuangan,
+            bpjs,
+            tanggalMasuk,
+            tanggalKeluar
+        };
+
+        // Masukkan objek data pasien baru ke dalam array
+        dataPasien.push(newDataPasien);
+
+        // Simpan array data pasien ke dalam localStorage
+        localStorage.setItem('dataPasien', JSON.stringify(dataPasien));
+
+        // Tampilkan data pasien di tabel
+        tampilkanDataPasien();
+    }
+
+    function tampilkanDataPasien() {
+        const dataPasien = JSON.parse(localStorage.getItem('dataPasien')) || [];
+        const tableBody = document.getElementById('tableBody');
+
+        // Kosongkan konten tabel sebelum menampilkan data pasien
+        tableBody.innerHTML = '';
+
+        // Tampilkan data pasien
+        dataPasien.forEach((pasien, index) => {
+            const row = tableBody.insertRow();
+
+            // Isi sel pada baris dengan data pasien
+            row.insertCell(0).textContent = index + 1;
+            row.insertCell(1).textContent = pasien.idPasien;
+            row.insertCell(2).textContent = pasien.namaPasien;
+            row.insertCell(3).textContent = pasien.alamat;
+            row.insertCell(4).textContent = pasien.noRuangan;
+            row.insertCell(5).textContent = pasien.bpjs;
+            row.insertCell(6).textContent = pasien.tanggalMasuk;
+            row.insertCell(7).textContent = pasien.tanggalKeluar;
+
+            // button Update
+            const updateButton = document.createElement('button');
+            updateButton.textContent = 'Update';
+            updateButton.onclick = function() {
+                // Isi kembali form dengan data pasien yang sesuai
+                document.getElementById('idPasien').value = pasien.idPasien;
+                document.getElementById('namaPasien').value = pasien.namaPasien;
+                document.getElementById('alamat').value = pasien.alamat;
+                document.getElementById('noRuangan').value = pasien.noRuangan;
+                document.getElementById('bpjs').value = pasien.bpjs;
+                document.getElementById('tanggalMasuk').value = pasien.tanggalMasuk;
+                document.getElementById('tanggalKeluar').value = pasien.tanggalKeluar;
+
+                // Hapus Dahulu lalu Tampilkan kembali form
+                hapusData(index);
+                tampilFormTambah();
+
+            };
+            row.insertCell(8).appendChild(updateButton);
+
+            //button Hapus
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Hapus';
+            deleteButton.onclick = function() {
+                hapusData(index);
+            };
+            row.insertCell(8).appendChild(deleteButton);
+        });
+    }
+
+    function hapusData(index) {
+        let dataPasien = JSON.parse(localStorage.getItem('dataPasien')) || [];
+        dataPasien.splice(index, 1);
+        localStorage.setItem('dataPasien', JSON.stringify(dataPasien));
+        tampilkanDataPasien();
+    }
+
+    // Panggil fungsi tampilkanDataPasien saat halaman dimuat
+    tampilkanDataPasien();
+</script>
+
+</html>

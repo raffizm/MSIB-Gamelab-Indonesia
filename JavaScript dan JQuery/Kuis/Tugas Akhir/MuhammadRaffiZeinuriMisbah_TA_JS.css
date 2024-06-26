@@ -1,0 +1,148 @@
+body.dark-theme {
+    background-color: #0F0F0F !important;
+}
+
+body.light-theme {
+    background-color: #E2E2E2;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.judulHome {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.containerFooter {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+#containerJudul.dark-theme {
+    background-color: #1C1C1B;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#containerJudul.light-theme {
+    background-color: #C0C0C0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#containerTheme.dark-theme {
+    background-color: #1C1C1B;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#containerTheme.light-theme {
+    background-color: #C0C0C0;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#search-input.dark-theme {
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    max-width: 300px;
+    box-shadow: none;
+}
+
+#search-input.light-theme {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    max-width: 300px;
+    box-shadow: none;
+}
+
+#temaBtn.dark-theme {
+    border-radius: 20px;
+    padding: 1px 10px;
+    background-color: #E2E2E2;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+#temaBtn.light-theme {
+    border-radius: 20px;
+    padding: 1px 10px;
+    background-color: #0F0F0F;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#searchText.dark-theme {
+    color: white;
+}
+
+#searchText.ligth-theme {
+    color: black;
+}
+
+.searchTxt {
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+#search-button.dark-theme {
+    border-radius: 20px;
+    padding: 1px 10px;
+    margin-left: 10px;
+    background-color: #E2E2E2;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+#search-button.light-theme {
+    border-radius: 20px;
+    padding: 1px 10px;
+    margin-left: 10px;
+    background-color: #a3a3a3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.card {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+h6.card-title.dark-theme {
+    color: #FFFFFF;
+}
+
+h6.card-title.light-theme {
+    color: #0F0F0F;
+}
+
+.card-text {
+    color: #595959;
+}
+
+.card:hover,
+.card.hovered {
+    opacity: 0.5;
+}
+
+img.card-img-top {
+    height: 300px;
+    width: 200px;
+}
+
+.white {
+    color: white;
+}
+
+.red {
+    color: red;
+}

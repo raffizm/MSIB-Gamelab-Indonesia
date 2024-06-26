@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mongodb": "4.4",
+    "packages": "^0.0.8"
+  }
+}

@@ -1,0 +1,82 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid {
+    max-width: 100%;
+    margin: auto;
+}
+
+.bgcolor {
+    background-color: #d4d4d4;
+}
+
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-item a {
+    font-size: 25;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+}
+
+.btnTambah {
+    margin: 20px;
+    padding: 10px;
+    margin-top: 80px;
+}
+
+#formTambah {
+    display: none;
+}
+
+.containerTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.tableTampil {
+    align-items: center;
+    border-collapse: collapse;
+    margin: 20px;
+    padding: 50px;
+}
+
+.tableTampil td,
+th {
+    padding: 15px;
+    margin: 20px;
+    background-color: rgb(184, 182, 182);
+}
+
+.judulColoumn {
+    background-color: yellow;
+}

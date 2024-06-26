@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis 07</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js "></script>
+    <link rel="style.css">
+</head>
+<script src="kuis07.js"></script>
+<style>
+    .imgClick1,
+    .imgClick2,
+    .imgClick3 {
+        height: 250px;
+        width: 250px;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    
+    .containerForm {
+        display: flex;
+        justify-content: center;
+        background-color: aliceblue;
+        padding: 50px;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    
+    .info {
+        color: rgb(141, 141, 141);
+    }
+    
+    #hasilClick {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <p class="info">Klik Gambar</p>
+        <div>
+            <img src="htmlLogo.jpg" class="imgClick1">
+            <p id="hasilClick1" class="center"></p>
+        </div>
+        <div>
+            <img src="cssLogo.jpg" class="imgClick2">
+            <p id="hasilClick2"></p>
+        </div>
+        <div>
+            <img src="jsLogo.png" class="imgClick3">
+            <p id="hasilClick3"></p>
+        </div>
+    </div>
+    <div class="containerForm">
+
+        <form id="myForm">
+            <hr>
+            <p id="hasilMouseEnter"></p>
+            <hr>
+            <table>
+                <tr>
+                    <td><label for="nama">Nama</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="nama"></td>
+                </tr>
+                <tr>
+                    <td><label for="emailUser">Email</label></td>
+                    <td>:</td>
+                    <td><input type="email" id="emailUser"></td>
+                </tr>
+                <tr>
+                    <td><label for="jenisKelamin">Jenis Kelamin</label></td>
+                    <td>:</td>
+                    <td><select>
+                        <option value="Laki-Laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select></td>
+                </tr>
+            </table>
+            <br>
+            <center>
+                <button type="submit">Kirim</button>
+                <button type="reset">Reset</button>
+            </center>
+
+        </form>
+    </div>
+    <center>
+        <p>Current Click :</p>
+        <p id="currentClick"></p>
+    </center>
+
+
+</body>
+
+</html>
